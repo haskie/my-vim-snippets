@@ -1,0 +1,172 @@
+# Shebang. Executing bash via /usr/bin/env makes scripts more portable.
+snippet #!
+	#!/usr/bin/env sh
+	
+snippet bash
+	#!/usr/bin/env bash
+
+snippet sbash
+	#!/usr/bin/env bash
+	set -euo pipefail
+	IFS=$'\n\t'
+
+snippet if
+	if [[ ${1:condition} ]]; then
+		${0:#statements}
+	fi
+
+snippet elif
+	elif [[ ${1:condition} ]]; then
+		${0:#statements}
+
+snippet for
+	for (( ${2:i} = 0; $2 < ${1:count}; $2++ )); do
+		${0:#statements}
+	done
+
+snippet fori
+	for ${1:needle} in ${2:haystack} ; do
+		${0:#statements}
+	done
+
+snippet wh
+	while [[ ${1:condition} ]]; do
+		${0:#statements}
+	done
+
+snippet until
+	until [[ ${1:condition} ]]; do
+		${0:#statements}
+	done
+
+snippet case
+	case ${1:word} in
+		${2:pattern})
+			${0};;
+	esac
+
+snippet go
+	while getopts '${1:o}' ${2:opts}
+	do
+		case $$2 in
+		${3:o0})
+			${0:#staments};;
+		esac
+	done
+
+# Set SCRIPT_DIR variable to directory script is located.
+snippet sdir
+	SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# getopt
+snippet getopt
+	__ScriptVersion="${1:version}"
+
+	#===  FUNCTION  ================================================================
+	#         NAME:  usage
+	#  DESCRIPTION:  Display usage information.
+	#===============================================================================
+	function usage ()
+	{
+		echo "Usage :  $${0:0} [options] [--]
+
+	    Options:
+	    -h|help       Display this message
+	    -v|version    Display script version"
+
+	}    # ----------  end of function usage  ----------
+
+	#-----------------------------------------------------------------------
+	#  Handle command line arguments
+	#-----------------------------------------------------------------------
+
+	while getopts ":hv" opt
+	do
+	  case $opt in
+
+		h|help     )  usage; exit 0   ;;
+
+		v|version  )  echo "$${0:0} -- Version $__ScriptVersion"; exit 0   ;;
+
+		* )  echo -e "\n  Option does not exist : $OPTARG\n"
+			  usage; exit 1   ;;
+
+	  esac    # --- end of case ---
+	done
+	shift $(($OPTIND-1))
+
+snippet root
+	if [ \$(id -u) -ne 0 ]; then exec sudo \$0; fi
+
+snippet fun-sh
+	${1:function_name}() {
+		${0:#function_body}
+	}
+
+snippet fun
+	function ${1:function_name}() {
+		${0:#function_body}
+	}
+
+snippet pressanykey
+	read -rsp $'${1:Press any key to continue...}\n' -n1 key
+
+snippet yesno
+	while true; do
+	    printf "${1:Yes or no?} [y/n] "
+	    read -n 1 -r yn && printf "\n"
+
+	    case $yn in
+
+	        [Yy]* ) 
+	            ${2:#Do yes stuff}
+	            break
+	        ;;
+
+	        [Nn]* ) 
+	            ${3:#Do no stuff}
+	            break
+	        ;;
+
+	        * ) printf "Please answer yes or no.\n";;
+	    esac
+	done
+
+snippet colordef
+	# Normal Colors
+	Black='\e[0;30m'        # Black
+	Red='\e[0;31m'          # Red
+	Green='\e[0;32m'        # Green
+	Yellow='\e[0;33m'       # Yellow
+	Blue='\e[0;34m'         # Blue
+	Purple='\e[0;35m'       # Purple
+	Cyan='\e[0;36m'         # Cyan
+	White='\e[0;37m'        # White	
+	
+	Reset="\e[m"            # Color Reset
+
+snippet printblack
+	printf "$Black"; printf "${1:condition}\n"; printf "$Reset"
+
+snippet printred
+	printf "$Red"; printf "${1:condition}\n"; printf "$Reset"
+
+snippet printgreen
+	printf "#Green"; printf "${1:condition}\n"; printf "$Reset"
+
+snippet printyellow
+	printf "$Yellow"; printf "${1:condition}\n"; printf "$Reset"
+
+snippet printblue
+	printf "$Blue"; printf "${1:condition}\n"; printf "$Reset"
+
+snippet printpurple
+	printf "$Purple"; printf "${1:condition}\n"; printf "$Reset"
+
+snippet printcyan
+	printf "$Cyan"; printf "${1:condition}\n"; printf "$Reset"
+
+snippet printwhite
+	printf "$White"; printf "${1:condition}\n"; printf "$Reset"
+
+
