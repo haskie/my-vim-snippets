@@ -297,6 +297,10 @@ snippet kwargs
 snippet akw
 	*args, **kwargs${1:,}${0}
 
+############################################
+snippet futureprint
+	from __future__ import print_function
+
 snippet colordef
 	# Normal Colors
 	Black='\033[30m'        # Black
@@ -307,4 +311,39 @@ snippet colordef
 	Purple='\033[35m'       # Purple
 	Cyan='\033[36m'         # Cyan
 	White='\033[37m'        # White
-	Reset="\033[m"            # Color Reset
+	
+	LBlack='\033[90m'       # Black
+	LRed='\033[91m'         # Red
+	LGreen='\033[92m'       # Green
+	LYellow='\033[93m'      # Yellow
+	LBlue='\033[94m'        # Blue
+	LPurple='\033[95m'      # Purple
+	LCyan='\033[96m'        # Cyan
+	LWhite='\033[97m'       # White
+
+	BackBlack='\033[40m'    # Black
+	BackRed='\033[41m'      # Red
+	BackGreen='\033[42m'    # Green
+	BackYellow='\033[43m'   # Yellow
+	BackBlue='\033[44m'     # Blue
+	BackPurple='\033[45m'   # Purple
+	BackCyan='\033[46m'     # Cyan
+	BackWhite='\033[47m'    # White
+	
+	BackLBlack='\033[100m'  # Black
+	BackLRed='\033[101m'    # Red
+	BackLGreen='\033[102m'  # Green
+	BackLYellow='\033[103m' # Yellow
+	BackLBlue='\033[104m'   # Blue
+	BackLPurple='\033[105m' # Purple
+	BackLCyan='\033[106m'   # Cyan
+	BackLWhite='\033[107m'  # White
+
+	Bold = '\033[1m'
+	Italics = '\033[3m'
+	Blink = '\033[5m'
+	Underline = '\033[4m'
+
+	Reset="\033[m"          # Color Reset
+
+	
