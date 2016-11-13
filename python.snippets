@@ -350,22 +350,22 @@ snippet menu
 
 	ans=True
 	while ans:
-	    print(Green, "[Menu] 1. ${1:Option #1}", Reset)
-	    print(Green, "[Menu] 2. ${2:Option #2}", Reset)
-	    print(Green, "[Menu] 3. ${3:Option #3}", Reset)
+	    print(Green, "[Menu] 1. ${1:Option #1}", Reset, sep="")
+	    print(Green, "[Menu] 2. ${2:Option #2}", Reset, sep="")
+	    print(Green, "[Menu] 3. ${3:Option #3}", Reset, sep="")
 	    
 		print(Cyan)
 		ans=raw_input("[Ques] What would you like to do?") 
 		print(Reset)
 
 	    if ans=="1": 
-	      # Option 1 Code
+			${4:print("You selected option 1.")}
 	    
 		elif ans=="2":
-	      # Option 1 Code
+			${5:print("You selected option 2.")}
 	    
 		elif ans=="3":
-	      # Option 1 Code
+			${6:print("You Selected option 3.")}
 	    
 		elif ans !="":
-	      print(Red, "Not Valid Choice Try again", Reset)	
+			print(Red, "Not Valid Choice Try again", Reset, sep="")	
