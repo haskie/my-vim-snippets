@@ -373,8 +373,9 @@ snippet printcolor
 	print( ${1:Green}, "${2:TextHere}", Reset, sep="", end="" )
 
 snippet yesorno
-	print( ${1:Cyan} )
+	print( ${1:Cyan}, end="\n" )
 	input = raw_input( "${2:Yes or no} [y/n] -> " )
+	print( Reset, end="")
 
 	if input == "Y" or input == "y":
 		${3:print( "Do whatever you need to do here after yes" )}
