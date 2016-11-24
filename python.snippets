@@ -1,4 +1,4 @@
-snippet #@
+snippet #!
 	#!/usr/bin/env python
 	# -*- coding: utf-8 -*-
 
@@ -347,7 +347,6 @@ snippet colordef
 	Reset="\033[m"          # Color Reset
 
 snippet menu
-
 	ans=True
 	while ans:
 	    print(Green, "[Menu] 1. ${1:Option #1}", Reset, sep="")
@@ -369,3 +368,6 @@ snippet menu
 	    
 		elif ans !="":
 			print(Red, "Not Valid Choice Try again", Reset, sep="")	
+
+snippet printcolor
+	print( ${1:Green}, "${2:TextHere}", Reset, sep="", end="" )
