@@ -373,11 +373,18 @@ snippet printcolor
 	print( ${1:Green}, "${2:TextHere}", Reset, sep="", end="" )
 
 snippet yesorno
-	print( ${1:Cyan}, end="\n" )
-	input = raw_input( "${2:Yes or no} [y/n] -> " )
-	print( Reset, end="\n")
+	while True:
+		print( ${1:Cyan}, end="\n" )
+		input = raw_input( "${2:Yes or no} [y/n] -> " )
+		print( Reset, end="\n")
 
-	if input == "Y" or input == "y":
-		${3:print( "Do whatever you need to do here after yes" )}
-	elif input == "N" or input == "n":
-		${4:print( "Do whatever you need to do here after no" )}
+		if input == "Y" or input == "y":
+			${3:print( "Do whatever you need to do here after yes" )}
+			break
+
+		elif input == "N" or input == "n":
+			${4:print( "Do whatever you need to do here after no" )}
+			break
+
+		else:
+			print( Red, "[Erro] That is not a valid selection, please try again.")
