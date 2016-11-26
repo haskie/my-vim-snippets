@@ -374,7 +374,7 @@ snippet printcolor
 
 snippet yesorno
 	while True:
-		print( ${1:Cyan}, end="\n" )
+		print( ${1:Cyan}, end="" )
 		input = raw_input( "${2:Yes or no} [y/n] -> " )
 		print( Reset, end="\n")
 
@@ -387,4 +387,4 @@ snippet yesorno
 			break
 
 		else:
-			print( Red, "[Erro] That is not a valid selection, please try again.")
+			print( Red, "[Erro] That is not a valid selection, please try again.", sep="", end="\n")
